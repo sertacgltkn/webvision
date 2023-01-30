@@ -3,6 +3,7 @@ import { Inter } from "@next/font/google";
 import Hero from "@/components/Hero";
 import Slider from "@/components/Slider";
 import { SliderData } from "@/components/SliderData";
+import Instagram from "@/components/Instagram";
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -21,6 +22,7 @@ export default function Home() {
         message="Experience the Future of Web Browsing with WebVision"
       />
       <Slider slides={SliderData}/>
+      <Instagram/>
     </>
   );
 }
