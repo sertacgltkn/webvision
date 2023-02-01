@@ -21,7 +21,7 @@ const Navbar = () => {
         setTextColor("#ffffff");
       }
     };
-    window.addEventListener("scrool", changeColor);
+    window.addEventListener("scroll", changeColor);
   }, []);
 
   return (
