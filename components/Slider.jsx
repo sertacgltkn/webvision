@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { SliderData } from "./SliderData";
 import { FaArrowCircleLeft, FaArrowCircleRight } from "react-icons/fa";
 
@@ -14,13 +14,20 @@ const Slider = ({ slides }) => {
     setCurrent(current === 0 ? length - 1 : current - 1);
   };
 
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      nextSlide();
+    }, 4000);
+    return () => clearInterval(intervalId);
+  }, [current]);
+
   if (!Array.isArray(slides) || slides.length <= 0) {
     return null;
   }
   return (
-    <div id="gallery" className="max-w-[1240px] mx-auto">
+    <div id="gallery" className="max-w-[1240px] mx-auto relative items-center justify-center">
       <h1 className="text-2xl font-bold text-center p-4">Gallery</h1>
-      <div className="relative flex justify-center p-4">
+      <div className="relative flex justify-center p-4 items-center w-full h-screen">
         {SliderData.map((slide, index) => {
           return (
             <div
